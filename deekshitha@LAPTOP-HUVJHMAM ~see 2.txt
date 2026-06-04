@@ -1,0 +1,705 @@
+deekshitha@LAPTOP-HUVJHMAM:~$ cd see
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ls
+e1.txt  e2.txt  e3.txt  os
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat os
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+deekshitha@LAPTOP-HUVJHMAM:~/see$ rm os.txt
+rm: cannot remove 'os.txt': No such file or directory
+deekshitha@LAPTOP-HUVJHMAM:~/see$ rm os
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat > e4.txt
+Sunday
+monday
+tuesday
+wednesday
+thursday
+friday
+saturday
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sort e4.txt
+Sunday
+friday
+monday
+saturday
+thursday
+tuesday
+wednesday
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e3,txt
+cat: e3,txt: No such file or directory
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e3.txt
+1       2       3       4       5       6
+A       B       C       D       E       F
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat > e5.txt
+Kar     TM      KL      AP
+Ben     Chen    Th      Am
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sort -k1 e5.txt
+Ben     Chen    Th      Am
+Kar     TM      KL      AP
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat > e6.txt
+123
+659
+6598
+7865
+2132
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sort -n -k1 e6.txt
+123
+659
+2132
+6598
+7865
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e1.txt
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ grep "is" e1.txt
+This is my first file
+deekshitha@LAPTOP-HUVJHMAM:~/see$ grep "a" e1.txt
+Have a Great Day....!!
+deekshitha@LAPTOP-HUVJHMAM:~/see$ grep "e" e1.txt
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e1.txt | tr 'i' 'I'
+HI..
+ThIs Is my fIrst fIle
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e1.txt | tr 'e' 'O'
+Hi..
+This is my first filO
+WOlcomO WOlcomO
+HavO a GrOat Day....!!
+HOllo
+ByO ByO
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e1.txt | tr 'This' 'that
+> '
+Ha..
+that at my fartt fale
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat e2.txt
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ uniq e2.txt
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ uniq -c e2.txt
+      1 Hi..
+      1 This is my first file
+      1 Welcome Welcome
+      1 Have a Great Day....!!
+      1 Hello
+      1 Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ uniq -u e2.txt
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ uniq -d e2.txt
+deekshitha@LAPTOP-HUVJHMAM:~/see$ head e2.txt
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ head -2 e2.txt
+Hi..
+This is my first file
+deekshitha@LAPTOP-HUVJHMAM:~/see$ head -c 2 e2.txt
+Hideekshitha@LAPTOP-HUVJHMAM:~/see$ tail e2.txt
+Hi..
+This is my first file
+Welcome Welcome
+Have a Great Day....!!
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ tail -2 e2.txt
+Hello
+Bye Bye
+deekshitha@LAPTOP-HUVJHMAM:~/see$ tail -c 2 e2.txt
+e
+deekshitha@LAPTOP-HUVJHMAM:~/see$ jobs
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sleep 500
+^Z
+[1]+  Stopped                 sleep 500
+deekshitha@LAPTOP-HUVJHMAM:~/see$ jobs
+[1]+  Stopped                 sleep 500
+deekshitha@LAPTOP-HUVJHMAM:~/see$ bg sleep 500
+[1]+ sleep 500 &
+-bash: bg: 500: no such job
+deekshitha@LAPTOP-HUVJHMAM:~/see$ fg sleep 500
+sleep 500
+^Z
+[1]+  Stopped                 sleep 500
+deekshitha@LAPTOP-HUVJHMAM:~/see$ jobs
+[1]+  Stopped                 sleep 500
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ps
+    PID TTY          TIME CMD
+    309 pts/0    00:00:00 bash
+    593 pts/0    00:00:00 sleep
+    599 pts/0    00:00:00 ps
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ps ux
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+deekshi+     309  0.0  0.0   6072  5312 pts/0    Ss   07:38   0:00 -bash
+deekshi+     354  0.0  0.1  20304 11392 ?        Ss   07:38   0:00 /usr/lib/systemd/systemd --user
+deekshi+     357  0.0  0.0  21148  3564 ?        S    07:38   0:00 (sd-pam)
+deekshi+     379  0.0  0.0   6072  5236 pts/1    S+   07:38   0:00 -bash
+deekshi+     593  0.0  0.0   3124  1856 pts/0    T    08:06   0:00 sleep 500
+deekshi+     602  0.0  0.0   8280  4240 pts/0    R+   08:10   0:00 ps ux
+deekshitha@LAPTOP-HUVJHMAM:~/see$ pd 309
+Command 'pd' not found, but can be installed with:
+sudo apt install puredata-core
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ps 309
+    PID TTY      STAT   TIME COMMAND
+    309 pts/0    Ss     0:00 -bash
+deekshitha@LAPTOP-HUVJHMAM:~/see$ top
+top - 08:16:56 up 38 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  28 total,   1 running,  26 sleeping,   1 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7599.1 total,   6914.6 free,    599.1 used,    234.6 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7000.0 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    614 deekshi+  20   0    9292   5596   3412 R   0.3   0.1   0:00.11 top
+      1 root      20   0   21452  12884   9576 S   0.0   0.2   0:01.18 systemd
+      2 root      20   0    3172   2208   2072 S   0.0   0.0   0:00.01 init-systemd(Ub
+      6 root      20   0    3188   2124   2008 S   0.0   0.0   0:00.00 init
+     52 root      19  -1   50440  16104  15020 S   0.0   0.2   0:00.30 systemd-journal
+    100 root      20   0   25124   6512   4968 S   0.0   0.1   0:00.24 systemd-udevd
+    169 systemd+  20   0   21452  12796  10540 S   0.0   0.2   0:00.13 systemd-resolve
+    170 systemd+  20   0   91020   7816   6872 S   0.0   0.1   0:00.36 systemd-timesyn
+    179 root      20   0    4236   2624   2368 S   0.0   0.0   0:00.01 cron
+    180 message+  20   0    9532   5224   4524 S   0.0   0.1   0:00.06 dbus-daemon
+    187 root      20   0   17964   8656   7612 S   0.0   0.1   0:00.08 systemd-logind
+    190 root      20   0 1756096  12976  10548 S   0.0   0.2   0:00.17 wsl-pro-service
+    201 syslog    20   0  222508   5828   4436 S   0.0   0.1   0:00.08 rsyslogd
+    210 root      20   0    3116   1928   1788 S   0.0   0.0   0:00.00 agetty
+    216 root      20   0  107008  22828  13364 S   0.0   0.3   0:00.13 unattended-upgr
+    307 root      20   0    3180   1112    980 S   0.0   0.0   0:00.00 SessionLeader
+    308 root      20   0    3196   1252   1108 S   0.0   0.0   0:00.15 Relay(309)
+    309 deekshi+  20   0    6072   5312   3592 S   0.0   0.1   0:00.13 bash
+    310 root      20   0    6692   4604   3820 S   0.0   0.1   0:00.01 login
+    354 deekshi+  20   0   20304  11392   9276 S   0.0   0.1   0:00.10 systemd
+    357 deekshi+  20   0   21148   3564   1840 S   0.0   0.0   0:00.00 (sd-pam)
+    379 deekshi+  20   0    6072   5236   3572 S   0.0   0.1   0:00.02 bash
+    472 root      20   0    2800   1916   1764 S   0.0   0.0   0:00.00 apt.systemd.dai
+    477 root      20   0    2800   1920   1764 S   0.0   0.0   0:00.00 apt.systemd.dai
+    501 root      20   0  368524 131016  82376 S   0.0   1.7   1:28.54 unattended-upgr
+    562 _apt      20   0   20168   9552   8500 S   0.0   0.1   0:00.12 http
+    563 _apt      20   0   20168   9420   8368 S   0.0   0.1   0:00.07 http
+    593 deekshi+  20   0    3124   1856   1740 T   0.0   0.0   0:00.00 sleep
+
+
+
+
+
+
+[2]+  Stopped                 top
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat nohup.out
+cat: nohup.out: No such file or directory
+deekshitha@LAPTOP-HUVJHMAM:~/see$ nice
+0
+deekshitha@LAPTOP-HUVJHMAM:~/see$ nice -5 wc -l &
+[3] 627
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ps
+    PID TTY          TIME CMD
+    309 pts/0    00:00:00 bash
+    593 pts/0    00:00:00 sleep
+    614 pts/0    00:00:00 top
+    627 pts/0    00:00:00 wc
+    631 pts/0    00:00:00 ps
+
+[3]+  Stopped                 nice -5 wc -l
+deekshitha@LAPTOP-HUVJHMAM:~/see$ top
+top - 08:34:39 up 56 min,  1 user,  load average: 0.00, 0.00, 0.00
+Tasks:  30 total,   1 running,  26 sleeping,   3 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.1 sy,  0.0 ni, 99.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7599.1 total,   6909.8 free,    603.0 used,    235.4 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6996.1 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0   21452  12884   9576 S   0.0   0.2   0:01.56 systemd
+      2 root      20   0    3172   2208   2072 S   0.0   0.0   0:00.01 init-systemd(Ub
+      6 root      20   0    3188   2124   2008 S   0.0   0.0   0:00.00 init
+     52 root      19  -1   50440  16124  15040 S   0.0   0.2   0:00.33 systemd-journal
+    100 root      20   0   25124   6512   4968 S   0.0   0.1   0:00.26 systemd-udevd
+    169 systemd+  20   0   21452  12796  10540 S   0.0   0.2   0:00.13 systemd-resolve
+    170 systemd+  20   0   91020   7816   6872 S   0.0   0.1   0:00.49 systemd-timesyn
+    179 root      20   0    4236   2624   2368 S   0.0   0.0   0:00.01 cron
+    180 message+  20   0    9532   5224   4524 S   0.0   0.1   0:00.07 dbus-daemon
+    187 root      20   0   17964   8656   7612 S   0.0   0.1   0:00.09 systemd-logind
+    190 root      20   0 1756096  13084  10548 S   0.0   0.2   0:00.20 wsl-pro-service
+    201 syslog    20   0  222508   5828   4436 S   0.0   0.1   0:00.09 rsyslogd
+    210 root      20   0    3116   1928   1788 S   0.0   0.0   0:00.00 agetty
+    216 root      20   0  107008  22828  13364 S   0.0   0.3   0:00.13 unattended-upgr
+    307 root      20   0    3180   1112    980 S   0.0   0.0   0:00.00 SessionLeader
+    308 root      20   0    3196   1252   1108 S   0.0   0.0   0:00.16 Relay(309)
+    309 deekshi+  20   0    6072   5312   3592 S   0.0   0.1   0:00.15 bash
+    310 root      20   0    6692   4604   3820 S   0.0   0.1   0:00.01 login
+    354 deekshi+  20   0   20304  11392   9276 S   0.0   0.1   0:00.10 systemd
+    357 deekshi+  20   0   21148   3564   1840 S   0.0   0.0   0:00.00 (sd-pam)
+    379 deekshi+  20   0    6072   5236   3572 S   0.0   0.1   0:00.02 bash
+    472 root      20   0    2800   1916   1764 S   0.0   0.0   0:00.00 apt.systemd.dai
+    477 root      20   0    2800   1920   1764 S   0.0   0.0   0:00.00 apt.systemd.dai
+    501 root      20   0  368524 131016  82376 S   0.0   1.7   1:28.73 unattended-upgr
+    562 _apt      20   0   20168   9552   8500 S   0.0   0.1   0:00.20 http
+    563 _apt      20   0   20168   9420   8368 S   0.0   0.1   0:00.07 http
+    593 deekshi+  20   0    3124   1856   1740 T   0.0   0.0   0:00.00 sleep
+    614 deekshi+  20   0    9292   5596   3412 T   0.0   0.1   0:00.11 top
+    627 deekshi+  25   5    3144   1772   1632 T   0.0   0.0   0:00.00 wc
+    632 deekshi+  20   0    9292   5608   3420 R   0.0   0.1   0:00.00 top
+
+
+
+
+[4]+  Stopped                 top
+deekshitha@LAPTOP-HUVJHMAM:~/see$ top -H -p501
+top - 08:35:13 up 57 min,  1 user,  load average: 0.00, 0.00, 0.00
+Threads:   4 total,   0 running,   4 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni, 99.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7599.1 total,   6907.6 free,    605.3 used,    235.4 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   6993.8 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    501 root      20   0  368524 131016  82376 S   0.0   1.7   1:28.74 unattended-upgr
+    548 root      20   0  368524 131016  82376 S   0.0   1.7   0:00.00 pool-spawner
+    549 root      20   0  368524 131016  82376 S   0.0   1.7   0:00.00 gmain
+    550 root      20   0  368524 131016  82376 S   0.0   1.7   0:00.00 gdbus
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[5]+  Stopped                 top -H -p501
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ps -T -p 631
+    PID    SPID TTY          TIME CMD
+deekshitha@LAPTOP-HUVJHMAM:~/see$ free
+               total        used        free      shared  buff/cache   available
+Mem:         7781468      618784     7074256        3600      241324     7162684
+Swap:        2097152           0     2097152
+deekshitha@LAPTOP-HUVJHMAM:~/see$ free -b
+               total        used        free      shared  buff/cache   available
+Mem:      7968223232   633864192  7243780096     3686400   247156736  7334359040
+Swap:     2147483648           0  2147483648
+deekshitha@LAPTOP-HUVJHMAM:~/see$ vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 1  0      0 7074004   4556 236808    0    0   100     6   71    0  0  0 100  0  0  0
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat /proc/menuinfo
+cat: /proc/menuinfo: No such file or directory
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat /proc/meninfo
+cat: /proc/meninfo: No such file or directory
+deekshitha@LAPTOP-HUVJHMAM:~/see$ cat /proc/meminfo
+MemTotal:        7781468 kB
+MemFree:         7073512 kB
+MemAvailable:    7162048 kB
+Buffers:            4584 kB
+Cached:           216184 kB
+SwapCached:            0 kB
+Active:            35420 kB
+Inactive:         373304 kB
+Active(anon):       2592 kB
+Inactive(anon):   188964 kB
+Active(file):      32828 kB
+Inactive(file):   184340 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       2097152 kB
+SwapFree:        2097152 kB
+Dirty:                 0 kB
+Writeback:             0 kB
+AnonPages:        188016 kB
+Mapped:           193200 kB
+Shmem:              3600 kB
+KReclaimable:      20664 kB
+Slab:              71916 kB
+SReclaimable:      20664 kB
+SUnreclaim:        51252 kB
+KernelStack:        3984 kB
+PageTables:         3404 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     5987884 kB
+Committed_AS:     695064 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       28632 kB
+VmallocChunk:          0 kB
+Percpu:             6528 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+Unaccepted:            0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:       76800 kB
+DirectMap2M:     4810752 kB
+DirectMap1G:    11534336 kB
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ifconfig
+Command 'ifconfig' not found, but can be installed with:
+sudo apt install net-tools
+deekshitha@LAPTOP-HUVJHMAM:~/see$ iwconfig
+Command 'iwconfig' not found, but can be installed with:
+sudo apt install wireless-tools
+deekshitha@LAPTOP-HUVJHMAM:~/see$ netstat
+Command 'netstat' not found, but can be installed with:
+sudo apt install net-tools
+deekshitha@LAPTOP-HUVJHMAM:~/see$ nload
+Command 'nload' not found, but can be installed with:
+sudo apt install nload
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo apt install net-tools
+[sudo] password for deekshitha:
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend. It is held by process 501 (unattended-upgr)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  net-tools
+0 upgraded, 1 newly installed, 0 to remove and 217 not upgraded.
+Need to get 204 kB of archives.
+After this operation, 811 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble-updates/main amd64 net-tools amd64 2.10-0.1ubuntu4.4 [204 kB]
+Fetched 204 kB in 1s (324 kB/s)
+Selecting previously unselected package net-tools.
+(Reading database ... 40794 files and directories currently installed.)
+Preparing to unpack .../net-tools_2.10-0.1ubuntu4.4_amd64.deb ...
+Unpacking net-tools (2.10-0.1ubuntu4.4) ...
+Setting up net-tools (2.10-0.1ubuntu4.4) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.19.29.207  netmask 255.255.240.0  broadcast 172.19.31.255
+        inet6 fe80::215:5dff:feab:b543  prefixlen 64  scopeid 0x20<link>
+        ether 00:15:5d:ab:b5:43  txqueuelen 1000  (Ethernet)
+        RX packets 31736  bytes 46794670 (46.7 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16711  bytes 1119431 (1.1 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 2636  bytes 168220 (168.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2636  bytes 168220 (168.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+deekshitha@LAPTOP-HUVJHMAM:~/see$ iwconfig
+Command 'iwconfig' not found, but can be installed with:
+sudo apt install wireless-tools
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo apt install wireless-tools
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libiw30t64
+The following NEW packages will be installed:
+  libiw30t64 wireless-tools
+0 upgraded, 2 newly installed, 0 to remove and 217 not upgraded.
+Need to get 128 kB of archives.
+After this operation, 364 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu noble/main amd64 libiw30t64 amd64 30~pre9-16.1ubuntu2 [18.6 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/main amd64 wireless-tools amd64 30~pre9-16.1ubuntu2 [110 kB]
+Fetched 128 kB in 1s (107 kB/s)
+Selecting previously unselected package libiw30t64:amd64.
+(Reading database ... 40842 files and directories currently installed.)
+Preparing to unpack .../libiw30t64_30~pre9-16.1ubuntu2_amd64.deb ...
+Adding 'diversion of /lib/x86_64-linux-gnu/libiw.so.30 to /lib/x86_64-linux-gnu/libiw.so.30.usr-is-merged by libiw30t64'
+Unpacking libiw30t64:amd64 (30~pre9-16.1ubuntu2) ...
+Selecting previously unselected package wireless-tools.
+Preparing to unpack .../wireless-tools_30~pre9-16.1ubuntu2_amd64.deb ...
+Unpacking wireless-tools (30~pre9-16.1ubuntu2) ...
+Setting up libiw30t64:amd64 (30~pre9-16.1ubuntu2) ...
+Removing 'diversion of /lib/x86_64-linux-gnu/libiw.so.30 to /lib/x86_64-linux-gnu/libiw.so.30.usr-is-merged by libiw30t64'
+Setting up wireless-tools (30~pre9-16.1ubuntu2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.3) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+deekshitha@LAPTOP-HUVJHMAM:~/see$ iwconfig
+lo        no wireless extensions.
+
+eth0      no wireless extensions.
+
+deekshitha@LAPTOP-HUVJHMAM:~/see$ netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 172.19.29.207:40680     172.66.152.176:http     TIME_WAIT
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  3      [ ]         STREAM     CONNECTED     10248
+unix  3      [ ]         STREAM     CONNECTED     10372
+unix  3      [ ]         DGRAM      CONNECTED     10443
+unix  3      [ ]         DGRAM      CONNECTED     10442
+unix  3      [ ]         STREAM     CONNECTED     585
+unix  2      [ ]         DGRAM                    2436     /var/run/chrony/chronyd.sock
+unix  3      [ ]         STREAM     CONNECTED     1898     /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    5538     /run/user/1000/systemd/notify
+unix  3      [ ]         DGRAM      CONNECTED     10444
+unix  3      [ ]         STREAM     CONNECTED     4871     /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     6355     /tmp/dbus-88eLPXXzni
+unix  3      [ ]         STREAM     CONNECTED     6352     /tmp/.X11-unix/X0
+unix  3      [ ]         DGRAM      CONNECTED     6219
+unix  3      [ ]         STREAM     CONNECTED     12764    /run/dbus/system_bus_socket
+unix  3      [ ]         DGRAM      CONNECTED     6218     /run/systemd/notify
+unix  3      [ ]         DGRAM      CONNECTED     6220
+unix  3      [ ]         STREAM     CONNECTED     143      /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    6233     /run/systemd/journal/syslog
+unix  9      [ ]         DGRAM      CONNECTED     6235     /run/systemd/journal/dev-log
+unix  8      [ ]         DGRAM      CONNECTED     6237     /run/systemd/journal/socket
+unix  3      [ ]         STREAM     CONNECTED     10422
+unix  3      [ ]         STREAM     CONNECTED     11392    /run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM      CONNECTED     10436
+unix  3      [ ]         STREAM     CONNECTED     563
+unix  2      [ ]         DGRAM      CONNECTED     2549
+unix  3      [ ]         STREAM     CONNECTED     10457
+unix  3      [ ]         DGRAM      CONNECTED     10441
+unix  3      [ ]         STREAM     CONNECTED     11389    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     1937     /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     7308
+unix  3      [ ]         STREAM     CONNECTED     2515
+unix  2      [ ]         DGRAM      CONNECTED     5527
+unix  3      [ ]         STREAM     CONNECTED     6160
+unix  3      [ ]         STREAM     CONNECTED     4681     /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM      CONNECTED     5318
+unix  3      [ ]         STREAM     CONNECTED     5374
+unix  3      [ ]         STREAM     CONNECTED     8588     /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     8580     /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     9377
+unix  3      [ ]         DGRAM      CONNECTED     5539
+unix  3      [ ]         STREAM     CONNECTED     12761    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     1760
+unix  3      [ ]         STREAM     CONNECTED     6012
+unix  3      [ ]         STREAM     CONNECTED     2530
+unix  3      [ ]         STREAM     CONNECTED     11390    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     6186
+unix  2      [ ]         DGRAM      CONNECTED     9254
+unix  3      [ ]         STREAM     CONNECTED     2455
+unix  3      [ ]         DGRAM      CONNECTED     5320
+unix  2      [ ]         DGRAM      CONNECTED     229
+unix  3      [ ]         STREAM     CONNECTED     11480    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     2454
+unix  3      [ ]         DGRAM      CONNECTED     5321
+unix  3      [ ]         STREAM     CONNECTED     6185
+unix  3      [ ]         STREAM     CONNECTED     5417     /run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM      CONNECTED     586
+unix  3      [ ]         STREAM     CONNECTED     5513
+unix  2      [ ]         DGRAM      CONNECTED     5522
+unix  3      [ ]         STREAM     CONNECTED     1896     /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM      CONNECTED     564
+unix  3      [ ]         STREAM     CONNECTED     2543
+unix  3      [ ]         STREAM     CONNECTED     9416     /mnt/wslg/PulseAudioRDPSink
+unix  3      [ ]         STREAM     CONNECTED     2456
+unix  3      [ ]         STREAM     CONNECTED     1761
+unix  3      [ ]         STREAM     CONNECTED     6161
+unix  3      [ ]         STREAM     CONNECTED     2544
+unix  3      [ ]         STREAM     CONNECTED     10459    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM      CONNECTED     9346
+unix  2      [ ]         STREAM     CONNECTED     8441
+unix  3      [ ]         STREAM     CONNECTED     3404     /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM      CONNECTED     11412
+unix  3      [ ]         STREAM     CONNECTED     3285
+unix  3      [ ]         STREAM     CONNECTED     11386
+unix  3      [ ]         STREAM     CONNECTED     3330     /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM      CONNECTED     5376
+unix  3      [ ]         STREAM     CONNECTED     3310
+unix  3      [ ]         STREAM     CONNECTED     11387
+unix  2      [ ]         DGRAM      CONNECTED     5296
+unix  3      [ ]         STREAM     CONNECTED     2541
+unix  3      [ ]         STREAM     CONNECTED     11415    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8673
+unix  2      [ ]         DGRAM      CONNECTED     9394
+unix  3      [ ]         DGRAM      CONNECTED     5540
+unix  3      [ ]         STREAM     CONNECTED     2453
+unix  3      [ ]         STREAM     CONNECTED     5542     @b0dfe68c927c37c1/bus/systemd/bus-system
+unix  3      [ ]         STREAM     CONNECTED     10453    @304fc839ea70a35f/bus/systemd-timesyn/bus-api-timesync
+unix  3      [ ]         STREAM     CONNECTED     193      @d24a2c08fe40ed5e/bus/systemd/bus-api-system
+unix  3      [ ]         STREAM     CONNECTED     9364     @e1f69b04975c370d/bus/systemd-resolve/bus-api-resolve
+unix  3      [ ]         STREAM     CONNECTED     9406     @f768f10438437459/bus/systemd-logind/system
+deekshitha@LAPTOP-HUVJHMAM:~/see$ ss -lt
+State             Recv-Q            Send-Q                        Local Address:Port                         Peer Address:Port           Process
+LISTEN            0                 4096                          127.0.0.53%lo:domain                            0.0.0.0:*
+LISTEN            0                 4096                             127.0.0.54:domain                            0.0.0.0:*
+LISTEN            0                 1000                         10.255.255.254:domain                            0.0.0.0:*
+deekshitha@LAPTOP-HUVJHMAM:~/see$ w
+ 08:42:00 up  1:03,  1 user,  load average: 0.04, 0.02, 0.00
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU  WHAT
+deekshit pts/1    -                07:38    1:03m  0.03s  0.02s -bash
+deekshitha@LAPTOP-HUVJHMAM:~/see$ traceroute
+Command 'traceroute' not found, but can be installed with:
+sudo apt install traceroute            # version 1:2.1.5-1, or
+sudo apt install inetutils-traceroute  # version 2:2.5-3ubuntu4.1
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo useradd Emp1
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo passwd Emp1
+New password:
+Retype new password:
+passwd: password updated successfully
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo useradd st
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo userdel st
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo deluser st
+fatal: The user `st' does not exist.
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo usermod -L Emp1
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo usermod -U Emp1
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo groupadd ABC
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo gpasswd ABC
+Changing the password for group ABC
+New Password:
+Re-enter new password:
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo groupdelABC
+sudo: groupdelABC: command not found
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo groupdel ABC
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo groupmod -g ABC Emp1
+groupmod: invalid group ID 'ABC'
+deekshitha@LAPTOP-HUVJHMAM:~/see$ sudo groupmod -g ABC
+groupmod: invalid group ID 'ABC'
+deekshitha@LAPTOP-HUVJHMAM:~/see$ df
+Filesystem      1K-blocks      Used  Available Use% Mounted on
+none              3890732         0    3890732   0% /usr/lib/modules/6.6.114.1-microsoft-standard-WSL2
+none              3890732         4    3890728   1% /mnt/wsl
+drivers         499003388 119168276  379835112  24% /usr/lib/wsl/drivers
+/dev/sdd       1055762868   1741140 1000318256   1% /
+none              3890732        32    3890700   1% /mnt/wslg
+none              3890732         0    3890732   0% /usr/lib/wsl/lib
+rootfs            3885724      2772    3882952   1% /init
+none              3890732       528    3890204   1% /run
+none              3890732         0    3890732   0% /run/lock
+none              3890732         0    3890732   0% /run/shm
+none              3890732       100    3890632   1% /mnt/wslg/versions.txt
+none              3890732       100    3890632   1% /mnt/wslg/doc
+C:\             499003388 119168276  379835112  24% /mnt/c
+tmpfs              778144        20     778124   1% /run/user/1000
+deekshitha@LAPTOP-HUVJHMAM:~/see$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.8G     0  3.8G   0% /usr/lib/modules/6.6.114.1-microsoft-standard-WSL2
+none            3.8G  4.0K  3.8G   1% /mnt/wsl
+drivers         476G  114G  363G  24% /usr/lib/wsl/drivers
+/dev/sdd       1007G  1.7G  954G   1% /
+none            3.8G   32K  3.8G   1% /mnt/wslg
+none            3.8G     0  3.8G   0% /usr/lib/wsl/lib
+rootfs          3.8G  2.8M  3.8G   1% /init
+none            3.8G  528K  3.8G   1% /run
+none            3.8G     0  3.8G   0% /run/lock
+none            3.8G     0  3.8G   0% /run/shm
+none            3.8G  100K  3.8G   1% /mnt/wslg/versions.txt
+none            3.8G  100K  3.8G   1% /mnt/wslg/doc
+C:\             476G  114G  363G  24% /mnt/c
+tmpfs           760M   20K  760M   1% /run/user/1000
+deekshitha@LAPTOP-HUVJHMAM:~/see$ iostat
+Command 'iostat' not found, but can be installed with:
+sudo apt install sysstat
+deekshitha@LAPTOP-HUVJHMAM:~/see$ free
+               total        used        free      shared  buff/cache   available
+Mem:         7781468      574752     6948420        3600      414724     7206716
+Swap:        2097152           0     2097152
+deekshitha@LAPTOP-HUVJHMAM:~/see$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:            7599         561        6785           3         405        7037
+Swap:           2048           0        2048
+deekshitha@LAPTOP-HUVJHMAM:~/see$ df
+Filesystem      1K-blocks      Used  Available Use% Mounted on
+none              3890732         0    3890732   0% /usr/lib/modules/6.6.114.1-microsoft-standard-WSL2
+none              3890732         4    3890728   1% /mnt/wsl
+drivers         499003388 119168276  379835112  24% /usr/lib/wsl/drivers
+/dev/sdd       1055762868   1741140 1000318256   1% /
+none              3890732        32    3890700   1% /mnt/wslg
+none              3890732         0    3890732   0% /usr/lib/wsl/lib
+rootfs            3885724      2772    3882952   1% /init
+none              3890732       528    3890204   1% /run
+none              3890732         0    3890732   0% /run/lock
+none              3890732         0    3890732   0% /run/shm
+none              3890732       100    3890632   1% /mnt/wslg/versions.txt
+none              3890732       100    3890632   1% /mnt/wslg/doc
+C:\             499003388 119168276  379835112  24% /mnt/c
+tmpfs              778144        20     778124   1% /run/user/1000
+deekshitha@LAPTOP-HUVJHMAM:~/see$ inix
+Command 'inix' not found, did you mean:
+  command 'inxi' from deb inxi (3.3.31-2-1)
+  command 'nix' from deb nix-bin (2.18.1+dfsg-1ubuntu2)
+  command 'ninix' from deb ninix-aya (5.0.9-1)
+  command 'init' from deb systemd-sysv (255.4-1ubuntu8.15)
+  command 'init' from deb finit-sysv (4.2-1)
+Try: sudo apt install <deb name>
+deekshitha@LAPTOP-HUVJHMAM:~/see$ crontab -e
+no crontab for deekshitha - using an empty one
+
+Select an editor.  To change later, run 'select-editor'.
+  1. /bin/nano        <---- easiest
+  2. /usr/bin/vim.basic
+  3. /usr/bin/vim.tiny
+  4. /bin/ed
+
+Choose 1-4 [1]:
